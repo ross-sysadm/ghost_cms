@@ -77,7 +77,7 @@ sed -e "s/SERVERNAME/$SERVER_NAME/g" $PWD/$NGINX_CONFIG_PATH/*.conf
 # Select appropriate email arg
 case "$EMAIL" in
   "") email_arg="--register-unsafely-without-email" ;;
-  *) email_arg="--email $EMAIL" ;;
+#  *) email_arg="--email $EMAIL" ;;
 esac
 
 # Enable staging mode if needed
