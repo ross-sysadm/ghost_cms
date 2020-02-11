@@ -36,8 +36,10 @@ fi
 if [ ! -e "$NGINX_CONFIG_PATH/letsencrypt/options-ssl-nginx.conf" ] || [ ! -e "$NGINX_CONFIG_PATH/letsencrypt/ssl-dhparams.pem" ]; then
   echo "### Downloading recommended TLS parameters ..."
   mkdir -p "$NGINX_CONFIG_PATH/letsencrypt"
-  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/tls_configs/options-ssl-nginx.conf > "$NGINX_CONFIG_PATH/letsencrypt/options-ssl-nginx.conf"
-  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "$NGINX_CONFIG_PATH/letsencrypt/ssl-dhparams.pem"
+#  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/tls_configs/options-ssl-nginx.conf > "$NGINX_CONFIG_PATH/letsencrypt/options-ssl-nginx.conf"
+  cp ./configs/options-ssl-nginx.conf $NGINX_CONFIG_PATH/letsencrypt/options-ssl-nginx.conf
+#  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "$NGINX_CONFIG_PATH/letsencrypt/ssl-dhparams.pem"
+  cp ./configs/dhparam.pem $NGINX_CONFIG_PATH/letsencrypt/dhparam.pem
   echo
 fi
 
